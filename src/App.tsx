@@ -26,18 +26,18 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({ id, children }) => {
   return (
     <div 
       id={id} 
-      className="max-w-5xl mx-auto my-12 bg-white rounded-4xl border border-orange-500/5 shadow-2xl overflow-hidden scroll-mt-24 relative z-10 transition-all duration-300 hover:shadow-orange-100/40 hover:border-orange-500/10"
+      className="max-w-5xl mx-auto my-3 sm:my-12 bg-white rounded-2xl sm:rounded-4xl border border-orange-500/5 shadow-2xl overflow-hidden scroll-mt-16 sm:scroll-mt-24 relative z-10 transition-all duration-300 hover:shadow-orange-100/40 hover:border-orange-500/10"
     >
-      {/* Mockup Browser Header */}
-      <div className="h-12 bg-gray-50 border-b border-gray-100 flex items-center justify-between px-6 select-none">
+      {/* Mockup Browser Header - hidden on mobile */}
+      <div className="hidden sm:flex h-12 bg-gray-50 border-b border-gray-100 items-center justify-between px-6 select-none">
         <div className="flex gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
           <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
         </div>
-        <div className="bg-white border border-gray-200/85 text-[10px] text-gray-400 font-mono px-8 py-1 rounded-full flex items-center gap-1.5 justify-center w-5/12 sm:w-1/3 shadow-inner">
+        <div className="bg-white border border-gray-200/85 text-[10px] text-gray-400 font-mono px-8 py-1 rounded-full flex items-center gap-1.5 justify-center w-5/12 md:w-1/3 shadow-inner">
           <span className="text-gray-300">https://</span>
-          <span className="text-gray-600 font-medium">sandeep-reddy.dev/{id === 'home' ? '' : id}</span>
+          <span className="text-gray-600 font-medium truncate">sandeep-reddy.dev/{id === 'home' ? '' : id}</span>
         </div>
         <div className="w-12 text-right">
           <span className="text-[9px] font-mono font-bold text-gray-400 tracking-widest uppercase">{id}</span>
@@ -107,7 +107,7 @@ export default function App() {
       />
 
       {/* Main Sections Stack */}
-      <main className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8 z-10">
+      <main className="relative max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-4 sm:pb-8 z-10">
         <SectionWrapper id="home">
           <HomeSection 
             onOpenBooking={() => handleOpenBooking()} 
@@ -150,8 +150,8 @@ export default function App() {
         </SectionWrapper>
 
         {/* Footer wrapped in browser layout card */}
-        <div className="max-w-5xl mx-auto my-12 bg-white rounded-4xl border border-orange-500/5 shadow-2xl overflow-hidden relative z-10">
-          <div className="h-12 bg-gray-50 border-b border-gray-100 flex items-center justify-between px-6 select-none">
+        <div className="max-w-5xl mx-auto my-3 sm:my-12 bg-white rounded-2xl sm:rounded-4xl border border-orange-500/5 shadow-2xl overflow-hidden relative z-10">
+          <div className="hidden sm:flex h-12 bg-gray-50 border-b border-gray-100 items-center justify-between px-6 select-none">
             <div className="flex gap-1.5">
               <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />

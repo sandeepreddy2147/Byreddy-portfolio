@@ -96,7 +96,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
   const [demoPlaying, setDemoPlaying] = useState(false);
 
   return (
-    <section id="home" className="relative py-12 overflow-hidden bg-transparent">
+    <section id="home" className="relative py-6 sm:py-12 overflow-hidden bg-transparent">
       {/* Background ambient light */}
       <div className="absolute top-[-100px] right-[-100px] w-[500px] h-[500px] bg-brand-light rounded-full blur-[120px] opacity-60 pointer-events-none" />
       <div className="absolute bottom-[-50px] left-[-50px] w-[400px] h-[400px] bg-brand-medium rounded-full blur-[100px] opacity-40 pointer-events-none" />
@@ -104,17 +104,18 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* HERO SECTION */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[60vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center min-h-0 sm:min-h-[60vh]">
           {/* Hero text */}
-          <div className="lg:col-span-7 space-y-5 text-left">
+          <div className="lg:col-span-7 space-y-3 sm:space-y-5 text-left">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 bg-orange-50 border border-orange-100 rounded-full text-brand-orange text-xs font-bold uppercase tracking-wider"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 bg-orange-50 border border-orange-100 rounded-full text-brand-orange text-[10px] sm:text-xs font-bold uppercase tracking-wider"
             >
               <span className="w-2 h-2 bg-brand-orange rounded-full"></span>
-              ✦ Full Stack Developer | SaaS Builder | AI Specialist
+              <span className="hidden sm:inline">✦ Full Stack Developer | SaaS Builder | AI Specialist</span>
+              <span className="sm:hidden">✦ Full Stack Dev | SaaS | AI</span>
             </motion.div>
 
             <div className="space-y-2">
@@ -130,9 +131,9 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl tracking-tight text-gray-900 leading-[1.05]"
+                className="font-display font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7.5xl tracking-tight text-gray-900 leading-[1.08]"
               >
-                Building <span className="text-brand-orange">Scalable</span> Software for Modern Businessss
+                Building <span className="text-brand-orange">Scalable</span> Software for Modern Businesses
               </motion.h1>
             </div>
 
@@ -150,11 +151,11 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-3 mt-2"
+              className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 mt-2"
             >
               <button
                 onClick={onOpenBooking}
-                className="px-6 py-3.5 bg-brand-orange text-white rounded-2xl font-bold text-xs shadow-2xl shadow-orange-200 hover:scale-105 transition-all duration-300 flex items-center gap-2 cursor-pointer"
+                className="px-5 sm:px-6 py-3 sm:py-3.5 bg-brand-orange text-white rounded-2xl font-bold text-xs shadow-2xl shadow-orange-200 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Schedule Consultation</span>
@@ -166,7 +167,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                   onNavigate('projects');
                 }}
-                className="px-6 py-3.5 bg-white border border-gray-200 text-gray-900 rounded-2xl font-bold text-xs shadow-sm hover:bg-gray-50 transition-all duration-300 flex items-center gap-1.5 cursor-pointer hover:scale-105"
+                className="px-5 sm:px-6 py-3 sm:py-3.5 bg-white border border-gray-200 text-gray-900 rounded-2xl font-bold text-xs shadow-sm hover:bg-gray-50 transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer hover:scale-105"
               >
                 <Eye className="w-4 h-4 text-gray-400" />
                 <span>View Projects</span>
@@ -177,7 +178,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
                   const el = document.getElementById('hotbers-showcase');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-6 py-3.5 bg-orange-50 border border-orange-200 text-orange-600 rounded-2xl font-bold text-xs shadow-sm hover:bg-orange-100/50 transition-all duration-300 flex items-center gap-1.5 cursor-pointer hover:scale-105"
+                className="px-5 sm:px-6 py-3 sm:py-3.5 bg-orange-50 border border-orange-200 text-orange-600 rounded-2xl font-bold text-xs shadow-sm hover:bg-orange-100/50 transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer hover:scale-105"
               >
                 <Play className="w-3.5 h-3.5 fill-current" />
                 <span>Watch HOTBERS Demo</span>
@@ -186,14 +187,14 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
           </div>
 
           {/* Hero Illustration */}
-          <div className="lg:col-span-5 relative flex justify-center items-center">
+          <div className="lg:col-span-5 relative flex justify-center items-center mt-6 lg:mt-0">
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, type: 'spring' }}
               className="w-full flex justify-center"
             >
-              <div className="relative w-full max-w-[340px] aspect-square rounded-[2.5rem] bg-white/40 backdrop-blur-lg border border-orange-500/10 p-4 shadow-xl flex items-center justify-center overflow-hidden">
+              <div className="relative w-full max-w-[240px] sm:max-w-[340px] aspect-square rounded-[2rem] sm:rounded-[2.5rem] bg-white/40 backdrop-blur-lg border border-orange-500/10 p-3 sm:p-4 shadow-xl flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-linear-to-tr from-orange-500/5 to-amber-500/10 rounded-full filter blur-xl animate-pulse-soft" />
                 <img
                   src={avatarDesk}
@@ -227,7 +228,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
         </div>
 
         {/* BOTTOM ACCENT RAIL */}
-        <div className="mt-12 py-6 border-t border-b border-orange-500/5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="mt-8 sm:mt-12 py-4 sm:py-6 border-t border-b border-orange-500/5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {STACK_ACCENTS.map((accent, idx) => (
             <div
               key={accent.name}
@@ -242,31 +243,31 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
         </div>
 
         {/* METRICS & STATISTICS BOARD */}
-        <div className="mt-20">
-          <div className="text-center max-w-md mx-auto mb-10 space-y-2">
-            <h2 className="font-display font-bold text-2xl text-gray-800">Operational Excellence</h2>
+        <div className="mt-14 sm:mt-20">
+          <div className="text-center max-w-md mx-auto mb-8 sm:mb-10 space-y-2">
+            <h2 className="font-display font-bold text-xl sm:text-2xl text-gray-800">Operational Excellence</h2>
             <p className="text-xs text-gray-400">Verifiable delivery milestones built across production applications.</p>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {STATS_CARDS.map((stat, idx) => (
               <div
                 key={stat.label}
-                className="bg-white rounded-2xl p-5 border border-orange-500/5 hover:border-orange-500/10 soft-shadow text-center space-y-1.5 transition-all duration-300 hover:-translate-y-1"
+                className="bg-white rounded-2xl p-4 sm:p-5 border border-orange-500/5 hover:border-orange-500/10 soft-shadow text-center space-y-1 sm:space-y-1.5 transition-all duration-300 hover:-translate-y-1"
               >
-                <span className="text-gray-400 text-xs font-medium font-display uppercase tracking-wider">{stat.label}</span>
-                <div className="text-3xl font-extrabold text-orange-500 font-display tracking-tight">{stat.value}</div>
-                <p className="text-[11px] text-gray-500 font-mono font-medium">{stat.desc}</p>
+                <span className="text-gray-400 text-[10px] sm:text-xs font-medium font-display uppercase tracking-wider">{stat.label}</span>
+                <div className="text-2xl sm:text-3xl font-extrabold text-orange-500 font-display tracking-tight">{stat.value}</div>
+                <p className="text-[10px] sm:text-[11px] text-gray-500 font-mono font-medium">{stat.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* CAPABILITIES & SERVICES OVERVIEW */}
-        <div className="mt-24">
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-10 gap-4">
+        <div className="mt-16 sm:mt-24">
+          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 sm:mb-10 gap-4">
             <div className="text-left space-y-2">
               <span className="text-orange-500 text-xs font-mono font-bold tracking-wider uppercase block">Capabilities Spectrum</span>
-              <h2 className="font-display font-bold text-3xl text-gray-800">What I Excel At</h2>
+              <h2 className="font-display font-bold text-2xl sm:text-3xl text-gray-800">What I Excel At</h2>
             </div>
             <button
               onClick={() => {
@@ -291,17 +292,24 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
                   <h3 className="font-display font-bold text-sm text-gray-800">{feat.title}</h3>
                   <p className="text-[11px] text-gray-500 leading-relaxed font-sans">{feat.desc}</p>
                 </div>
-                <div className="flex items-center gap-1.5 text-orange-500 font-mono text-[9px] font-bold uppercase tracking-wider self-end mt-2">
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('contact');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    onNavigate('contact');
+                  }}
+                  className="flex items-center gap-1.5 text-orange-500 font-mono text-[9px] font-bold uppercase tracking-wider self-end mt-2 cursor-pointer hover:gap-2.5 transition-all"
+                >
                   <span>Inquire</span>
                   <ChevronRight className="w-2.5 h-2.5" />
-                </div>
+                </button>
               </div>
             ))}
           </div>
         </div>
 
         {/* PRIMARY HOTBERS FEATURED SHOWCASE */}
-        <div id="hotbers-showcase" className="mt-28 bg-linear-to-br from-orange-500/5 to-amber-500/5 rounded-[2.5rem] p-8 sm:p-12 border border-orange-500/10 text-left relative overflow-hidden">
+        <div id="hotbers-showcase" className="mt-16 sm:mt-28 bg-linear-to-br from-orange-500/5 to-amber-500/5 rounded-[1.5rem] sm:rounded-[2.5rem] p-5 sm:p-8 md:p-12 border border-orange-500/10 text-left relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-40 pointer-events-none -z-10" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -311,7 +319,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
                 <BookmarkCheck className="w-3.5 h-3.5" />
                 <span>Featured Masterpiece</span>
               </div>
-              <h3 className="font-display font-black text-3xl sm:text-4xl text-gray-800 tracking-tight leading-[1.1]">
+              <h3 className="font-display font-black text-2xl sm:text-3xl md:text-4xl text-gray-800 tracking-tight leading-[1.1]">
                 HOTBERS
               </h3>
               <p className="text-xs text-orange-500 font-semibold font-mono tracking-wide -mt-3">
@@ -353,18 +361,20 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
                   <span>Explore Case Study</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
-                <button
-                  onClick={() => setDemoPlaying(true)}
+                <a
+                  href="https://www.hotbers.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-4 py-2.5 bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 font-display text-xs font-bold rounded-xl transition-all flex items-center gap-1"
                 >
                   <Play className="w-3 h-3 fill-current" />
                   <span>Watch Demo Video</span>
-                </button>
+                </a>
               </div>
             </div>
 
-            {/* Laptop / Mobile Mockups */}
-            <div className="lg:col-span-7 relative flex flex-col sm:flex-row items-center gap-6 justify-center">
+            {/* Laptop / Mobile Mockups - hidden on mobile */}
+            <div className="lg:col-span-7 relative hidden sm:flex flex-col sm:flex-row items-center gap-6 justify-center">
               <LaptopMockup3D className="w-full sm:w-80 shrink-0 z-10" />
               <SmartphoneMockup3D className="w-36 shrink-0 sm:-ml-12 sm:-mt-12 z-20" />
             </div>
@@ -372,7 +382,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
         </div>
 
         {/* TESTIMONIALS SLIDER SECTION */}
-        <div className="mt-28 py-10 bg-slate-50/50 rounded-3xl border border-gray-100 p-8 sm:p-12 text-left relative overflow-hidden">
+        <div className="mt-16 sm:mt-28 py-8 sm:py-10 bg-slate-50/50 rounded-2xl sm:rounded-3xl border border-gray-100 p-5 sm:p-8 md:p-12 text-left relative overflow-hidden">
           <div className="flex items-center gap-2 text-orange-500 mb-4">
             <Star className="w-4 h-4 fill-current" />
             <Star className="w-4 h-4 fill-current" />
@@ -383,7 +393,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
           </div>
 
           <div className="space-y-6">
-            <p className="font-display font-semibold text-lg sm:text-xl text-gray-700 italic max-w-3xl leading-relaxed">
+            <p className="font-display font-semibold text-base sm:text-lg md:text-xl text-gray-700 italic max-w-3xl leading-relaxed">
               "{TESTIMONIALS[activeTestimonial].quote}"
             </p>
 

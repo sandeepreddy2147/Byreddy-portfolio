@@ -61,11 +61,14 @@ export const Header: React.FC<HeaderProps> = ({
               
               {/* Brand Logo */}
               <div 
-                className="flex items-center gap-1.5 cursor-pointer group select-none"
+                className="flex items-center gap-1.5 cursor-pointer group select-none min-w-0"
                 onClick={() => handleNavClick('home')}
               >
-                <span className="font-display font-extrabold text-brand-orange text-lg font-mono tracking-tight">&lt;/&gt;</span>
-                <span className="font-display font-bold text-sm tracking-tight text-gray-950">
+                <span className="font-display font-extrabold text-brand-orange text-lg font-mono tracking-tight shrink-0">&lt;/&gt;</span>
+                <span className="font-display font-bold text-sm tracking-tight text-gray-950 truncate hidden sm:inline">
+                  Byreddy Venkata Sandeep Reddy
+                </span>
+                <span className="font-display font-bold text-sm tracking-tight text-gray-950 sm:hidden">
                   Sandeep Reddy
                 </span>
               </div>

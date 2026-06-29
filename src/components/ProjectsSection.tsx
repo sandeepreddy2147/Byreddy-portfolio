@@ -28,7 +28,6 @@ import {
 import { GradientSphere } from './ThreeDIllustration';
 import { Project } from '../types';
 import hotbersDesktop from '../../assets/hotbers_dashboard_desktop.png';
-import hotbersMobilePremium from '../../assets/hotbers_mobile_premium_dashboard.png';
 
 interface ProjectsSectionProps {
   onOpenBooking: () => void;
@@ -234,19 +233,12 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenBooking 
                 </div>
               </div>
 
-              {/* Images - Overlapping layout */}
-              <div className="lg:col-span-7 relative flex items-end justify-center min-h-[320px] sm:min-h-[380px]">
-                {/* Desktop image - base layer */}
+              {/* Main HOTBERS Showcase Image */}
+              <div className="lg:col-span-7 flex items-center justify-center">
                 <img
                   src={hotbersDesktop}
                   alt="HOTBERS Admin Dashboard"
-                  className="w-[75%] sm:w-[68%] object-contain drop-shadow-2xl rounded-2xl z-10 relative"
-                />
-                {/* Mobile image - overlapping bottom-right */}
-                <img
-                  src={hotbersMobilePremium}
-                  alt="HOTBERS Mobile Dashboard"
-                  className="w-[30%] sm:w-[28%] object-contain drop-shadow-2xl rounded-xl z-20 absolute right-0 bottom-0 translate-y-4"
+                  className="w-full object-contain drop-shadow-2xl rounded-2xl"
                 />
               </div>
 
