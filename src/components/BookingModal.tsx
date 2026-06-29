@@ -458,11 +458,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase mb-1.5 font-display">Phone Number (Optional)</label>
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-1.5 font-display">Phone Number</label>
                 <div className="relative">
                   <Phone className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
                   <input
                     type="tel"
+                    required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="e.g. +91 98765 43210"
@@ -475,6 +476,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-1.5 font-display">Project Budget (Optional)</label>
                 <select
                   value={budget}
+                  required
                   onChange={(e) => setBudget(e.target.value)}
                   className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 focus:border-brand-orange focus:bg-white rounded-2xl text-xs outline-none transition-all"
                 >
