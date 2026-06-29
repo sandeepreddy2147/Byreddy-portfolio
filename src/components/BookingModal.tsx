@@ -473,7 +473,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase mb-1.5 font-display">Project Budget (Optional)</label>
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-1.5 font-display">Project Budget</label>
                 <select
                   value={budget}
                   required
