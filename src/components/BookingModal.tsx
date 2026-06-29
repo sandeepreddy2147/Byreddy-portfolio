@@ -494,6 +494,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <textarea
                   rows={3}
                   value={details}
+                  required
                   onChange={(e) => setDetails(e.target.value)}
                   placeholder="Tell Sandeep about your vision, technical goals, and deadlines..."
                   className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 focus:border-brand-orange focus:bg-white rounded-2xl text-xs outline-none transition-all resize-none"
@@ -613,14 +614,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </div>
 
                 {/* Local ICS file download option */}
-                <button
-                  type="button"
-                  onClick={() => downloadICSFile(createdBooking)}
-                  className="w-full flex items-center justify-center gap-2 p-3.5 bg-brand-orange hover:bg-orange-600 text-white rounded-2xl text-xs font-bold shadow-md shadow-orange-100 hover:shadow-lg transition-all cursor-pointer"
-                >
-                  <Download className="w-4 h-4" />
-                  <span>Download iCal File (.ics)</span>
-                </button>
+               
               </div>
 
               <div className="pt-2">
