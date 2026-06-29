@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import {
   Sparkles,
@@ -27,6 +27,7 @@ import {
   UserCheck2,
   CheckCircle2,
   ChevronRight,
+  ChevronLeft,
   ThumbsUp,
   MessageSquare,
   BookmarkCheck
@@ -75,16 +76,20 @@ const FEATURES_CARDS = [
 
 const TESTIMONIALS = [
   {
-    quote: "Sandeep did an incredible job bringing our SaaS product from concept to a fully operational reality. His skill in Firebase and AI integration is exceptional. He communicates clearly and delivers code that is clean, secure, and easily scalable.",
-    author: "Pranay Reddy",
-    role: "CEO, Hotbuzz Technologies",
-    avatar: "PR"
+    badge: "Founder Reflection",
+    rating: "5.0 / 5.0 Vision & Execution",
+    quote: "Building HotBers has been one of the most rewarding challenges of my career. From identifying real problems faced by PG owners and tenants to developing a scalable SaaS platform, every feature was designed with performance, simplicity, and user experience in mind. Leveraging React, Firebase, AI-powered features, Razorpay integration, and real-time synchronization, I focused on creating a secure, modern, and scalable solution that can grow with the business. HotBers reflects my commitment to solving real-world problems through technology.",
+    author: "Byreddy Venkata Sandeep Reddy",
+    role: "Founder & Full Stack Developer, HotBers",
+    avatar: "BS"
   },
   {
-    quote: "Byreddy is a developer with true craft. He doesn't just build features; he cares about UX, animations, and clean design. The booking system he developed for our platform has reduced scheduling friction by over 40%. Highly recommended!",
-    author: "K. Sandeep",
-    role: "Operations lead",
-    avatar: "KS"
+    badge: "Capstone Project Evaluation",
+    rating: "5.0 / 5.0 Capstone Project Evaluation",
+    quote: "Tvarit demonstrates strong full-stack engineering skills and a practical approach to solving real-world problems through AI. The platform combines an intuitive user interface with well-structured backend architecture, showcasing effective integration of modern web technologies, cloud services, and intelligent recommendation features. The project reflects excellent problem-solving ability, clean code organization, and a solid understanding of scalable application development.",
+    author: "Dr J Benita Madam",
+    role: "Capstone Project Review, Full Stack Development Program",
+    avatar: "JB"
   }
 ];
 
@@ -94,6 +99,14 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
 }) => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [demoPlaying, setDemoPlaying] = useState(false);
+
+  // Auto-slide every 6 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % TESTIMONIALS.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="home" className="relative py-6 sm:py-12 overflow-hidden bg-transparent">
@@ -381,23 +394,31 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
           </div>
         </div>
 
-        {/* TESTIMONIALS SLIDER SECTION */}
-        <div className="mt-16 sm:mt-28 py-8 sm:py-10 bg-slate-50/50 rounded-2xl sm:rounded-3xl border border-gray-100 p-5 sm:p-8 md:p-12 text-left relative overflow-hidden">
-          <div className="flex items-center gap-2 text-orange-500 mb-4">
-            <Star className="w-4 h-4 fill-current" />
-            <Star className="w-4 h-4 fill-current" />
-            <Star className="w-4 h-4 fill-current" />
-            <Star className="w-4 h-4 fill-current" />
-            <Star className="w-4 h-4 fill-current" />
-            <span className="text-xs font-mono font-bold text-gray-400 ml-1.5">5.0 / 5.0 Rating</span>
+        {/* REVIEWS SLIDER SECTION */}
+        <div className="mt-16 sm:mt-28 py-6 sm:py-8 bg-slate-50/50 rounded-2xl sm:rounded-3xl border border-gray-100 p-5 sm:p-8 md:p-10 text-left relative overflow-hidden">
+          {/* Badge & Rating */}
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <span className="text-[10px] font-mono font-bold text-orange-500 bg-orange-50 px-2.5 py-1 rounded-full border border-orange-100 uppercase tracking-wider">
+              {TESTIMONIALS[activeTestimonial].badge}
+            </span>
+            <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-0.5 text-orange-500">
+                <Star className="w-3.5 h-3.5 fill-current" />
+                <Star className="w-3.5 h-3.5 fill-current" />
+                <Star className="w-3.5 h-3.5 fill-current" />
+                <Star className="w-3.5 h-3.5 fill-current" />
+                <Star className="w-3.5 h-3.5 fill-current" />
+              </div>
+              <span className="text-[10px] font-mono font-bold text-gray-400">{TESTIMONIALS[activeTestimonial].rating}</span>
+            </div>
           </div>
 
           <div className="space-y-6">
-            <p className="font-display font-semibold text-base sm:text-lg md:text-xl text-gray-700 italic max-w-3xl leading-relaxed">
+            <p className="font-display font-semibold text-sm sm:text-base md:text-lg text-gray-700 italic max-w-3xl leading-relaxed">
               "{TESTIMONIALS[activeTestimonial].quote}"
             </p>
 
-            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-gray-100">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-display font-extrabold text-xs">
                   {TESTIMONIALS[activeTestimonial].avatar}
@@ -408,16 +429,34 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
                 </div>
               </div>
 
-              {/* Slider Dots */}
-              <div className="flex gap-1.5">
-                {TESTIMONIALS.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveTestimonial(idx)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all ${activeTestimonial === idx ? 'bg-orange-500 w-6' : 'bg-gray-250 hover:bg-gray-300'}`}
-                    aria-label={`Testimonial ${idx + 1}`}
-                  />
-                ))}
+              {/* Navigation Controls */}
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setActiveTestimonial((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
+                  className="w-8 h-8 rounded-full bg-white border border-gray-200 hover:border-orange-300 flex items-center justify-center text-gray-500 hover:text-orange-500 transition-all cursor-pointer shadow-sm"
+                  aria-label="Previous review"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                <div className="flex gap-1.5">
+                  {TESTIMONIALS.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveTestimonial(idx)}
+                      className={`h-2 rounded-full transition-all ${activeTestimonial === idx ? 'bg-orange-500 w-6' : 'bg-gray-250 hover:bg-gray-300 w-2'}`}
+                      aria-label={`Review ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => setActiveTestimonial((prev) => (prev + 1) % TESTIMONIALS.length)}
+                  className="w-8 h-8 rounded-full bg-white border border-gray-200 hover:border-orange-300 flex items-center justify-center text-gray-500 hover:text-orange-500 transition-all cursor-pointer shadow-sm"
+                  aria-label="Next review"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
           </div>

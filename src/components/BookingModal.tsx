@@ -41,13 +41,15 @@ const TIME_SLOTS = [
 ];
 
 const SERVICE_OPTIONS = [
-  'Custom Web Development',
-  'SaaS Product Development',
+  'Landing Page Development',
+  'Business Website Development',
   'Admin Dashboard Development',
+  'Custom SaaS Development',
+  'Enterprise Custom App',
+  'Monthly Maintenance Plan',
   'API Integration & Custom Code',
   'Firebase Development',
   'Performance & SEO Optimization',
-  'Maintenance & Support',
   'General Tech Consultation'
 ];
 
@@ -56,8 +58,21 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   onClose, 
   initialService = 'General Tech Consultation' 
 }) => {
+  // Map pricing plan names to service options
+  const mapServiceName = (service: string): string => {
+    const mapping: Record<string, string> = {
+      'Landing Page': 'Landing Page Development',
+      'Business Website': 'Business Website Development',
+      'Admin Dashboard': 'Admin Dashboard Development',
+      'Custom SaaS': 'Custom SaaS Development',
+      'Enterprise Custom App': 'Enterprise Custom App',
+      'Monthly Maintenance Plan': 'Monthly Maintenance Plan',
+    };
+    return mapping[service] || service;
+  };
+
   const [step, setStep] = useState<1 | 2 | 3>(1);
-  const [selectedService, setSelectedService] = useState(initialService);
+  const [selectedService, setSelectedService] = useState(mapServiceName(initialService));
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
   const [name, setName] = useState('');
@@ -73,7 +88,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [dateOptions, setDateOptions] = useState<{ value: string; display: string }[]>([]);
 
   useEffect(() => {
-    setSelectedService(initialService);
+    setSelectedService(mapServiceName(initialService));
   }, [initialService]);
 
   useEffect(() => {
@@ -464,11 +479,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 focus:border-brand-orange focus:bg-white rounded-2xl text-xs outline-none transition-all"
                 >
                   <option value="">Select your range...</option>
-                  <option value="Under ₹15,000">Under ₹15,000</option>
-                  <option value="₹15,000 - ₹30,000">₹15,000 - ₹30,000</option>
-                  <option value="₹30,000 - ₹80,000">₹30,000 - ₹80,000</option>
-                  <option value="₹80,000 - ₹2,00,000">₹80,000 - ₹2,00,000</option>
-                  <option value="Above ₹2,00,000">Above ₹2,00,000 (Enterprise / Complex SaaS)</option>
+                  <option value="Under ₹15,000">Under ₹5,000</option>
+                  <option value="₹15,000 - ₹30,000">₹5,000 - ₹20,000</option>
+                  <option value="₹30,000 - ₹80,000">₹20,000 - ₹45,000</option>
+                  <option value="₹80,000 - ₹2,00,000">₹45,000 - ₹1,00,000</option>
+                  <option value="Above ₹2,00,000">Above ₹1,00,000 (Enterprise / Complex SaaS)</option>
                 </select>
               </div>
 

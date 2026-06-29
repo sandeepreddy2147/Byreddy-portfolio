@@ -29,22 +29,22 @@ import avatarPortrait from '../../assets/sandeep_avatar_portrait.png';
 
 const TIMELINE_EVENTS = [
   {
-    year: '2025 - Present',
-    role: 'SaaS Product Builder & AI Specialist',
-    company: 'Independent Contracts & Agency Projects',
-    desc: 'Architected multiple responsive systems including PG manager cloud software and intelligent data pipelines. Spearheaded robust API connection rails, real-time database synchronizations, and client portal applications.'
+    year: '2025 – Present',
+    role: 'HotBers – PG Management SaaS Platform',
+    company: 'Property Management SaaS',
+    desc: 'Built a scalable SaaS platform that streamlines PG management with tenant onboarding, room booking, digital payments, maintenance tracking, and owner analytics. Integrated secure authentication, real-time Firebase synchronization, Razorpay payments, push notifications, and a responsive client portal to deliver a seamless experience for both property owners and tenants.'
   },
   {
-    year: '2024 - 2025',
-    role: 'Full Stack Engineer (Apprentice)',
-    company: 'Startup Lab Environments',
-    desc: 'Explored multi-tier developer environments. Designed elegant web components, custom admin controllers, and serverless background tasks using Node.js and Firebase functions.'
+    year: '2024 – 2025',
+    role: 'Tvarit – AI-Powered Meal Kit Platform',
+    company: 'AI-Powered Food Technology',
+    desc: 'Developed an AI-powered meal planning platform that recommends personalized recipes, generates smart shopping lists, and simplifies meal preparation. Implemented intelligent recommendation workflows, responsive user interfaces, secure authentication, and cloud-based data management for a smooth end-to-end user experience.'
   },
   {
-    year: '2023 - 2024',
-    role: 'Graduate/Trainee Developer',
-    company: 'Engineering Projects',
-    desc: 'Developed robust foundational programming modules. Experimented with JavaScript protocols, CSS frameworks, SQL schema models, and agile software development cycles.'
+    year: '2023 – 2024',
+    role: 'Full Stack Development & Engineering Projects',
+    company: 'Engineering & Full Stack Projects',
+    desc: 'Built multiple responsive web applications and management systems using React, Node.js, Firebase, JavaScript, and SQL. Focused on scalable architectures, REST APIs, authentication, database design, and performance optimization while following modern software engineering practices.'
   }
 ];
 

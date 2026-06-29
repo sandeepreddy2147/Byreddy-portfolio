@@ -27,7 +27,7 @@ const PLANS = [
   {
     id: 'landing',
     name: 'Landing Page',
-    price: '₹15,000',
+    price: '₹3,000',
     desc: 'Perfect for startups, campaigns, and individual business introductions.',
     icon: <Rocket className="w-5 h-5 text-orange-500" />,
     features: [
@@ -42,7 +42,7 @@ const PLANS = [
   {
     id: 'business',
     name: 'Business Website',
-    price: '₹30,000',
+    price: '₹15,000',
     desc: 'Professional dynamic multi-page websites designed to scale your operations.',
     icon: <Briefcase className="w-5 h-5 text-amber-500" />,
     features: [
@@ -57,7 +57,7 @@ const PLANS = [
   {
     id: 'admin',
     name: 'Admin Dashboard',
-    price: '₹40,000',
+    price: '₹30,000',
     desc: 'Powerful administrative workspaces designed to capture data and charts.',
     icon: <Database className="w-5 h-5 text-orange-600" />,
     recommended: true,
