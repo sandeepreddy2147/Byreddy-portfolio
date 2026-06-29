@@ -481,11 +481,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 focus:border-brand-orange focus:bg-white rounded-2xl text-xs outline-none transition-all"
                 >
                   <option value="">Select your range...</option>
-                  <option value="Under ₹15,000">Under ₹5,000</option>
-                  <option value="₹15,000 - ₹30,000">₹5,000 - ₹20,000</option>
-                  <option value="₹30,000 - ₹80,000">₹20,000 - ₹45,000</option>
-                  <option value="₹80,000 - ₹2,00,000">₹45,000 - ₹1,00,000</option>
-                  <option value="Above ₹2,00,000">Above ₹1,00,000 (Enterprise / Complex SaaS)</option>
+                  <option value="Under ₹5,000">Under ₹5,000</option>
+                  <option value="₹5,000 - ₹20,000">₹5,000 - ₹20,000</option>
+                  <option value="₹20,000 - ₹45,000">₹20,000 - ₹45,000</option>
+                  <option value="₹45,000 - ₹1,00,000">₹45,000 - ₹1,00,000</option>
+                  <option value="Above ₹1,00,000">Above ₹1,00,000 (Enterprise / Complex SaaS)</option>
                 </select>
               </div>
 
